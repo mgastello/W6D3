@@ -13,9 +13,10 @@ davinci = User.create(username: 'Da Vinci')
 vangogh = User.create(username: 'Van Gogh')
 
 a1 = Artwork.create(title:'Wave',image_url: 'w@',artist_id: picasso.id)
-a1 = Artwork.create!(title:'Wave',image_url: 'w@',artist_id: picasso.id)
 a2 = Artwork.create(title:'R',image_url: '1@',artist_id:picasso.id)
 a3 = Artwork.create(title:'M',image_url: 'w3@',artist_id:davinci.id)
 a4 = Artwork.create(title:'U',image_url: 'w2@',artist_id:vangogh.id)
 
 as1 = ArtworkShare.create(viewer_id: picasso.id,artwork_id: a1.id)
+as2 = ArtworkShare.create(viewer_id: picasso.id,artwork_id: a2.id)
+as3 = ArtworkShare.create(viewer_id: davinci.id,artwork_id: a1.id)
