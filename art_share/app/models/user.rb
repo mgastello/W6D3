@@ -10,9 +10,15 @@
 class User < ApplicationRecord
     validates :username, presence: true, uniqueness: true
 
-    has_many :artpieces
+    has_many :artwork_shares,
+        primary_key: :id,
+        foreign_key: :viewer_id,
+        class_name: :ArtworkShares
 
-    has_many :artwork_shares
+    has_many :artpieces,
+        primary_key: :id,
+        foreign_key: :artist_id,
+        class_name: :Artwork
 
     has_many :shared_artworks,
         through: :artwork_shares,
