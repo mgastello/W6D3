@@ -1,3 +1,14 @@
+# == Schema Information
+#
+# Table name: artworks
+#
+#  id         :bigint           not null, primary key
+#  title      :string           not null
+#  image_url  :text             not null
+#  artist_id  :bigint           not null
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
 class Artwork < ApplicationRecord
   validates :title, :image_url, :artist_id, presence: true#, uniqueness: true
   validates :image_url, uniqueness: true
@@ -6,5 +17,12 @@ class Artwork < ApplicationRecord
     scope: :title,
     message: "'%{value}' artist and title combination should be unique"
   }
-  belongs_to :artist, inverse_of :artpieces
-  end
+
+  belongs_to :artist, inverse_of: :artpieces
+
+  has_many :artwork_shares
+
+  has_many :shared_viewers,
+    through: :artwork_shares,
+    source: :viewer
+end
