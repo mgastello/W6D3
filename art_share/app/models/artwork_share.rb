@@ -9,16 +9,16 @@
 #  updated_at :datetime         not null
 #
 class ArtworkShare < ApplicationRecord
-    # belongs_to :viewer,
-    #     primary_key: :id,
-    #     foreign_key: :viewer_id,
-    #     class_name: :User 
+    belongs_to :viewer,
+        primary_key: :id,
+        foreign_key: :viewer_id,
+        class_name: :User 
     
-    # #inverse_of: :artwork_shares
+    # inverse_of: :artwork_shares
 
-    # belongs_to :artpiece,
-    #     # inverse_of: :artwork_shares,
-    #     primary_key: :id,
-    #     foreign_key: :artwork_id,
-    #     class_name: :Artwork
+    belongs_to :artpiece,
+        # inverse_of: :artwork_shares,
+        primary_key: :id,
+        foreign_key: :artwork_id,
+        class_name: :Artwork
 end
