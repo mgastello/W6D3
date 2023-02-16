@@ -1084,3 +1084,146 @@ Processing by UsersController#create as */*
 Completed 200 OK in 20ms (Views: 0.3ms | ActiveRecord: 7.4ms | Allocations: 12900)
 
 
+Started GET "/users" for ::1 at 2023-02-16 17:20:51 -0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:5:in `index'
+Completed 200 OK in 26ms (Views: 11.3ms | ActiveRecord: 8.3ms | Allocations: 7136)
+
+
+Started GET "/users/2" for ::1 at 2023-02-16 17:21:00 -0500
+
+AbstractController::ActionNotFound - The action 'show' could not be found for UsersController:
+
+Started GET "/users/" for ::1 at 2023-02-16 17:21:09 -0500
+Processing by UsersController#index as */*
+  Parameters: {"fav"=>{"food"=>"pizza", "color"=>"blue", "veggie"=>{"greens"=>"broccoli"}}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:5:in `index'
+Completed 200 OK in 5ms (Views: 4.0ms | ActiveRecord: 0.4ms | Allocations: 1098)
+
+
+Started DELETE "/users/24" for ::1 at 2023-02-16 17:21:32 -0500
+Processing by UsersController#destroy as */*
+  Parameters: {"fav"=>{"food"=>"pizza", "color"=>"blue", "veggie"=>{"greens"=>"broccoli"}}, "id"=>"24"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20:in `destroy'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:22:in `destroy'
+  [1m[36mUser Destroy (3.5ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 24]]
+  ↳ app/controllers/users_controller.rb:22:in `destroy'
+  [1m[36mTRANSACTION (6.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:22:in `destroy'
+Completed 200 OK in 28ms (Views: 0.2ms | ActiveRecord: 11.2ms | Allocations: 5268)
+
+
+Started GET "/users/" for ::1 at 2023-02-16 17:21:39 -0500
+Processing by UsersController#index as */*
+  Parameters: {"fav"=>{"food"=>"pizza", "color"=>"blue", "veggie"=>{"greens"=>"broccoli"}}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:5:in `index'
+Completed 200 OK in 6ms (Views: 4.4ms | ActiveRecord: 0.7ms | Allocations: 907)
+
+
+Started GET "/users/22" for ::1 at 2023-02-16 17:26:02 -0500
+Processing by UsersController#show as */*
+  Parameters: {"fav"=>{"food"=>"pizza", "color"=>"blue", "veggie"=>{"greens"=>"broccoli"}}, "id"=>"22"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 22], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:30:in `show'
+Completed 200 OK in 15ms (Views: 0.4ms | ActiveRecord: 3.2ms | Allocations: 4690)
+
+
+Started GET "/users/20" for ::1 at 2023-02-16 17:26:10 -0500
+Processing by UsersController#show as */*
+  Parameters: {"fav"=>{"food"=>"pizza", "color"=>"blue", "veggie"=>{"greens"=>"broccoli"}}, "id"=>"20"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:30:in `show'
+Completed 404 Not Found in 3ms (ActiveRecord: 0.4ms | Allocations: 1065)
+
+
+
+ActiveRecord::RecordNotFound - Couldn't find User with 'id'=20:
+  app/controllers/users_controller.rb:30:in `show'
+
+Started GET "/users/24" for ::1 at 2023-02-16 17:27:18 -0500
+Processing by UsersController#show as */*
+  Parameters: {"fav"=>{"food"=>"pizza", "color"=>"blue", "veggie"=>{"greens"=>"broccoli"}}, "id"=>"24"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:30:in `show'
+Completed 404 Not Found in 19ms (ActiveRecord: 7.7ms | Allocations: 3996)
+
+
+
+ActiveRecord::RecordNotFound - Couldn't find User with 'id'=24:
+  app/controllers/users_controller.rb:30:in `show'
+
+Started GET "/users/22" for ::1 at 2023-02-16 17:27:26 -0500
+Processing by UsersController#show as */*
+  Parameters: {"fav"=>{"food"=>"pizza", "color"=>"blue", "veggie"=>{"greens"=>"broccoli"}}, "id"=>"22"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 22], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:30:in `show'
+Completed 500 Internal Server Error in 20ms (ActiveRecord: 0.7ms | Allocations: 6090)
+
+
+
+NoMethodError - undefined method `show' for #<User id: 22, username: "Picasso", created_at: "2023-02-16 21:45:01.613346000 +0000", updated_at: "2023-02-16 21:45:01.613346000 +0000">:
+  app/controllers/users_controller.rb:33:in `show'
+
+Started GET "/users/21" for ::1 at 2023-02-16 17:27:35 -0500
+Processing by UsersController#show as */*
+  Parameters: {"fav"=>{"food"=>"pizza", "color"=>"blue", "veggie"=>{"greens"=>"broccoli"}}, "id"=>"21"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:30:in `show'
+Completed 404 Not Found in 4ms (ActiveRecord: 0.6ms | Allocations: 1030)
+
+
+
+ActiveRecord::RecordNotFound - Couldn't find User with 'id'=21:
+  app/controllers/users_controller.rb:30:in `show'
+
+Started GET "/users/23" for ::1 at 2023-02-16 17:27:39 -0500
+Processing by UsersController#show as */*
+  Parameters: {"fav"=>{"food"=>"pizza", "color"=>"blue", "veggie"=>{"greens"=>"broccoli"}}, "id"=>"23"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:30:in `show'
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 0.4ms | Allocations: 5062)
+
+
+
+NoMethodError - undefined method `show' for #<User id: 23, username: "Da Vinci", created_at: "2023-02-16 21:45:01.622023000 +0000", updated_at: "2023-02-16 21:45:01.622023000 +0000">:
+  app/controllers/users_controller.rb:33:in `show'
+
+Started GET "/users/23" for ::1 at 2023-02-16 17:27:55 -0500
+Processing by UsersController#show as */*
+  Parameters: {"fav"=>{"food"=>"pizza", "color"=>"blue", "veggie"=>{"greens"=>"broccoli"}}, "id"=>"23"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:30:in `show'
+Completed 200 OK in 16ms (Views: 0.7ms | ActiveRecord: 3.7ms | Allocations: 4683)
+
+
+Started PATCH "/users/23?user[username]=DA%20vinci" for ::1 at 2023-02-16 17:30:37 -0500
+Processing by UsersController#update as */*
+  Parameters: {"fav"=>{"food"=>"pizza", "color"=>"blue", "veggie"=>{"greens"=>"broccoli"}}, "user"=>{"username"=>"DA vinci"}, "id"=>"23"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:36:in `update'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:38:in `update'
+  [1m[36mUser Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "DA vinci"], ["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:38:in `update'
+  [1m[36mUser Update (0.6ms)[0m  [1m[33mUPDATE "users" SET "username" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["username", "DA vinci"], ["updated_at", "2023-02-16 22:30:38.017158"], ["id", 23]]
+  ↳ app/controllers/users_controller.rb:38:in `update'
+  [1m[36mTRANSACTION (10.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:38:in `update'
+Redirected to http://localhost:3000/users/23
+Completed 302 Found in 43ms (ActiveRecord: 15.2ms | Allocations: 9157)
+
+
+Started GET "/users/23" for ::1 at 2023-02-16 17:30:38 -0500
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"23"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:30:in `show'
+Completed 200 OK in 6ms (Views: 0.8ms | ActiveRecord: 0.4ms | Allocations: 717)
+
+
